@@ -7,7 +7,7 @@
   </div>
   <% if (page.type == 'post') { %>
   <!-- Post categories-->
-  <% [...tags(page), ...categories(page)].forEach((label) => { %>
+  <% [...page.tags, ...categories(page)].forEach((label) => { %>
   <a class="badge bg-secondary text-decoration-none link-light" href="<%- label.path %>"><%- label.name %></a>
   <% }) %>
   <% } %>
