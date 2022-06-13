@@ -1,6 +1,8 @@
 <!--important meta-->
 <link rel="canonical" href="<%- page.canonical||page.url %>" />
-<% if (page.redirect) { %>
+<% if (page.redirect_to) { %>
+  <meta http-equiv="refresh" content="1; URL=<%- page.redirect_to %>">
+<% } else if (page.redirect) { %>
   <meta http-equiv="refresh" content="1; URL=<%- page.redirect %>">
 <% } %>
 <meta name="author" content="<%- author_name(page)||author_name(config) %>" />
@@ -18,7 +20,7 @@
 <meta property="article:published_time" content="<%- page.date %>" />
 <meta property="article:modified_time" content="<%- page.updated %>" />
 <meta property="article:author" content="<%- author_name(page)||author_name(config) %>" />
-<% page.tags.forEach(tag => { %>
+<% tags(page).forEach(tag => { %>
 <meta property="article:tag" content="<%- tag.name %>" />
 <% }) %>
 <!--twitter metadata-->

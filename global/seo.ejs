@@ -1,6 +1,8 @@
 <!--important meta-->
 <link rel="canonical" href="<%- page.canonical||page.url %>" />
-<% if (page.redirect) { %>
+<% if (page.redirect_to) { %>
+  <meta http-equiv="refresh" content="1; URL=<%- page.redirect_to %>">
+<% } else if (page.redirect) { %>
   <meta http-equiv="refresh" content="1; URL=<%- page.redirect %>">
 <% } %>
 <meta name="author" content="<%- author_name(page)||author_name(config) %>" />
